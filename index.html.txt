@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>MyStudies+ (PWA)</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="appbar">
+    <h1>MyStudies+ <span class="lock">🔒</span></h1>
+    <button id="installBtn" class="ghost" hidden>Εγκατάσταση</button>
+  </header>
+
+  <main id="app">
+    <section class="card">
+      <div class="student-header">
+        <div>
+          <div id="fullName" class="title"></div>
+          <div id="university" class="subtitle"></div>
+          <div id="studentId"
+               class="student-id"
+               title="Τριπλό tap για κρυφό editor">
+            Α.Μ.: —
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gpaCard" class="card">
+      <h2>Σύνοψη</h2>
+      <div class="row">
+        <div><strong>Σταθμισμένος Μ.Ο. (ECTS):</strong></div>
+        <div id="weightedGPA" class="mono">—</div>
+      </div>
+      <div class="row">
+        <div><strong>Σύνολο ECTS:</strong></div>
+        <div id="totalECTS" class="mono">—</div>
+      </div>
+    </section>
+
+    <div id="semesters"></div>
+  </main>
+
+  <!-- Modal: PIN -->
+  <dialog id="pinDialog">
+    <form method="dialog" class="dialog-form">
+      <h3>Κρυφός Editor</h3>
+      <p>Δώσε PIN για πρόσβαση.</p>
+      <input id="pinInput" type="password" inputmode="numeric" maxlength="8" placeholder="PIN" required />
+      <menu>
+        <button value="cancel" class="ghost">Άκυρο</button>
+        <button value="ok" class="primary">Συνέχεια</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <!-- Modal: Editor -->
+  <dialog id="editorDialog">
+    <form method="dialog" class="dialog-form editor">
+      <header class="dialog-header">
+        <h3>Επεξεργασία</h3>
+        <button value="cancel" class="ghost">Κλείσιμο</button>
+      </header>
+
+      <section>
+        <h4>Στοιχεία Φοιτητή</h4>
+        <label>Όνομα
+          <input id="firstName" />
+        </label>
+        <label>Επώνυμο
+          <input id="lastName" />
+        </label>
+        <label>Πανεπιστήμιο
+          <input id="universityInput" />
+        </label>
+        <label>Αριθμός Μητρώου
+          <input id="studentIdInput" />
+        </label>
+      </section>
+
+      <section id="editorSemesters"></section>
+
+      <section class="pin-section">
+        <h4>PIN</h4>
+        <p class="muted">Το PIN φυλάσσεται ως hash τοπικά στη συσκευή.</p>
+        <label>Νέο PIN
+          <input id="newPin" type="password" inputmode="numeric" maxlength="8" placeholder="(προαιρετικό)" />
+        </label>
+      </section>
+
+      <menu>
+        <button id="addSemesterBtn" type="button" class="ghost">+ Προσθήκη Εξαμήνου</button>
+        <button id="saveBtn" class="primary">Αποθήκευση</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>

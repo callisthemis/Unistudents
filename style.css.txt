@@ -1,0 +1,97 @@
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --ink: #131417;
+  --muted: #666;
+  --primary: #0059ff;
+  --border: #e6e8ef;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.appbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 2;
+}
+
+h1 { font-size: 18px; margin: 0; }
+.lock { opacity: .9; }
+
+main { padding: 16px; max-width: 900px; margin: 0 auto; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.title { font-weight: 700; font-size: 18px; }
+.subtitle { color: var(--muted); margin-top: 2px; }
+.student-id { color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+.semester h2 { margin: 0 0 8px 0; font-size: 16px; }
+
+.row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 0; border-top: 1px dashed var(--border);
+}
+.row:first-of-type { border-top: 0; }
+.row .mono { font-variant-numeric: tabular-nums; }
+
+.course {
+  display: grid; grid-template-columns: 1fr auto; gap: 6px 10px;
+  padding: 10px 0; border-top: 1px dashed var(--border);
+}
+.course:first-child { border-top: 0; }
+.course .meta { color: var(--muted); font-size: 12px; }
+.right { text-align: right; font-variant-numeric: tabular-nums; }
+
+.ghost {
+  background: transparent; border: 1px solid var(--border); color: var(--ink);
+  padding: 8px 12px; border-radius: 10px;
+}
+.primary {
+  background: var(--primary); color: white; border: none;
+  padding: 10px 14px; border-radius: 10px;
+}
+.muted { color: var(--muted); }
+
+dialog::backdrop { backdrop-filter: blur(4px); background: rgba(0,0,0,.2); }
+.dialog-form { min-width: min(700px, 95vw); }
+.dialog-header { display: flex; align-items: center; justify-content: space-between; }
+
+.editor label { display: grid; gap: 6px; margin-bottom: 10px; }
+.editor input[type="text"], .editor input[type="password"], .editor input[type="number"] {
+  padding: 10px; border: 1px solid var(--border); border-radius: 10px; width: 100%;
+}
+
+.semester-box {
+  border: 1px solid var(--border); border-radius: 12px; padding: 10px; margin: 10px 0 14px 0;
+}
+.semester-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px;
+}
+.small { font-size: 12px; color: var(--muted); }
+
+.inline-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 8px;
+}
+.inline-grid input {
+  width: 100%;
+}
+
+.remove { color: #c62828; }
